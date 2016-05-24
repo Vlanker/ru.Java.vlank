@@ -17,7 +17,7 @@ public class Main {
         System.out.println("Game Start!");
         do {
             field.show();
-            int shoot = player.getShoot();
+            String  shoot= player.getShoot();
             field.doShoot(shoot);
         } while (field.isNotGameOver());
     }

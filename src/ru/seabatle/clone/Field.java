@@ -22,19 +22,19 @@ public class Field {
         cells[ship.positionLine][ship.positionColumn] = '#';
     }
 
-    void doShoot(int shoot) {
-        String str = ""+shoot;
-        int lin = Integer.parseInt(String.valueOf(str.charAt(0)));
-        int col = Integer.parseInt(String.valueOf(str.charAt(1)));
-      switch (cells[lin -1][col-1]) {
+    void doShoot(String shoot) {
+        int line = Integer.parseInt(String.valueOf(shoot.charAt(0)));
+        int count = Integer.parseInt(String.valueOf(shoot.charAt(1)));
+        switch (cells[line][count]) {
             case '.':
                 System.out.println("Промах");
-                cells[lin -1][col-1] = '*';
+                cells[line][count] = '*';
                 break;
             case '#':
                 System.out.println("Попадание!");
-                cells[lin -1][col-1] = 'X';
-                System.out.println(cells[lin][col]);
+                cells[line][count] = 'X';
+                System.out.println(cells[line][count]);
+                show();
                 break;
             case '*':
                 System.out.println("Уже стреляли");
@@ -43,7 +43,6 @@ public class Field {
                 System.out.println("ERROR");
         }
     }
-
 
 
     void show() {
